@@ -1,6 +1,6 @@
 function select(event, ...check){
     let button = event.target;
-    if (!button || button == null) return
+    if (!button || button == null || button.textContent == '') return
     check.forEach(node => {
         node.childNodes.forEach(element => {
             if (element.classList){
