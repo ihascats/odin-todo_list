@@ -1,16 +1,24 @@
 import submit from "./submitOnEnter";
 import quickMakeNewElement from "./newElement";
 
-function newProjectTab(event, lookingFor = '+'){
+function newProjectTab(event, lookingFor = ''){
 
     let newTab = event.target;
+
     if (!newTab || newTab == null) return
+    
     if (newTab.textContent == lookingFor){
-        console.log('New Tab!');
+
+        // make new element that is input type
         let textInput = quickMakeNewElement('input', 'css-input');
+        // set input type to text
         textInput.setAttribute("type", "text");
+
+        // empty new tab button, and then append input text area
         newTab.textContent = '';
         newTab.appendChild(textInput);
+
+
         submit(newTab, textInput, lookingFor);
         
     }
