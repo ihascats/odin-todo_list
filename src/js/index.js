@@ -27,7 +27,7 @@ console.table(info.informationHandler);
 console.table(info.toDoItemArray[0]);
 
 // populates card with ToDo item of id 0
-populate(info.toDoItemArray[0]);
+// populate(info.toDoItemArray[0]);
 
 projectsSelector.addEventListener('click', (event)=>{
     newProjectTab(event, '+');
