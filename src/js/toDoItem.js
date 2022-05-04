@@ -1,4 +1,4 @@
-class Card {
+class ToDoInformation {
     constructor (id = 0, title = "", description = "", dueDate, priority = 0, checkList = [], note = ""){
         this.id = id;
         this.title = title;
@@ -10,4 +10,4 @@ class Card {
     }
 }
 
-export default Card;
+export default ToDoInformation;

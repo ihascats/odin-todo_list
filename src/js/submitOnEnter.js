@@ -1,4 +1,5 @@
 import newButton from "./newProjectButton";
+import Project from "./createProject";
 
 function submit(toBeChanged, change, lookingFor=''){
     document.onkeydown = function(event) {

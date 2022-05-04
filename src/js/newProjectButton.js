@@ -1,8 +1,8 @@
 import quickMakeNewElement from "./newElement";
 
-function newButton(lookingFor, setClass){
+function newButton(text, setClass){
     let button = quickMakeNewElement('button', setClass);
-    button.textContent = lookingFor;
+    button.textContent = text;
     return button;
 }
 
