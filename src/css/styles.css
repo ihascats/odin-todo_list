@@ -7,7 +7,7 @@
 
 .container {
     display: grid;
-    grid-template-columns: 1fr auto 3fr 1fr;
+    grid-template-columns: .5fr auto auto 1fr;
     height: 100vh;
 }
 
@@ -68,6 +68,7 @@ h1, h6 {
     display: grid;
     align-items: center;
     background-color: #5C527F;
+    width: 840px;
 }
 
 .card {
@@ -133,10 +134,6 @@ h1, h6 {
     margin-bottom: -2px;
 }
 
-.tasks {
-    background-color: #2c1e2b;
-    width: 256px;
-}
 
 .checked {
     text-decoration: line-through;
@@ -169,7 +166,7 @@ li > button {
     width: 27px;
     height: 27px;
     border: none;
-    background-color: #37283a;
+    background-color: #9d777f;
     border-radius: 2px;
 }
 
@@ -179,7 +176,35 @@ li > button {
     gap: 8px;
 }
 
+.tasks {
+    background-color: #2c1e2b;
+    width: 256px;
+    display: grid;
+    grid-auto-rows: auto;
+}
 
+.tasks > div {
+    display: grid;
+    grid-auto-rows: auto;
+    height: fit-content;
+    padding: 16px 0px 0px 0px;
+}
+
+.tasks > div > button {
+    height: fit-content;
+    text-align: left;
+    padding: 8px;
+    letter-spacing: 2px;
+    background-color: #3d2a36;
+    border: none;
+    overflow: hidden;
+}
+.tasks > div > button:hover {
+    background-color: #271a23;
+}
+.tasks > div > button:active {
+    background-color: #523944;
+}
 
 
 

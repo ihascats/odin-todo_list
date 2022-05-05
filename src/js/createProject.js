@@ -1,13 +1,10 @@
 import newButton from "./newProjectButton";
 
-class Project {
-    constructor(name){
-        this.name = name.toUpperCase();
-    }
 
-    createButton(appendWhere){
-        appendWhere.appendChild(newButton(this.name, this.name.toLowerCase()));
-    }
+
+function createButton(name, appendWhere){
+    appendWhere.appendChild(newButton(name.toUpperCase(), name.toLowerCase()));
 }
 
-export default Project
+
+export default createButton

@@ -8,6 +8,13 @@ class Information {
         this.informationHandler = {};
     }
 
+    addProject(projectName){
+        if (!this.projectsArray.includes(projectName)){
+            this.projectsArray.push(projectName);
+            this.informationHandler[projectName] = [];
+        }
+    }
+
     addToDoItem(title, project){
         let item = new ToDoInformation(this.toDoItemArray.length, title);
         this.toDoItemArray.push(item);
@@ -15,8 +22,9 @@ class Information {
     }
     
     addItemToProjectList(item, project){
-        this.informationHandler[project] = [];
+        this.addProject(project);
         this.informationHandler[project].push(item.id);
+
 
     }
     // id = 0, title = "", description = "", dueDate, priority = 0, checkList = [], note = ""
