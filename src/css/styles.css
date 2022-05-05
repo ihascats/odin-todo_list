@@ -138,6 +138,9 @@ h1, h6 {
     width: 256px;
 }
 
+.checked {
+    text-decoration: line-through;
+}
 
 
 .right {
@@ -157,6 +160,17 @@ ul {
 
 li {
     list-style: none;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+}
+
+li > button {
+    width: 27px;
+    height: 27px;
+    border: none;
+    background-color: #37283a;
+    border-radius: 2px;
 }
 
 .card-info > div {

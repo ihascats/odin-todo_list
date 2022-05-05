@@ -5,6 +5,7 @@ import Project from "./createProject"
 import newButton from './newProjectButton';
 import Information from './informationInOnePlace';
 import populate from './populateNote';
+import checked from './markChecked';
 
 const projectsSelector = document.querySelector('.projects');
 const byDateSelector = document.querySelector('.by-date');
@@ -28,6 +29,10 @@ console.table(info.toDoItemArray[0]);
 
 // populates card with ToDo item of id 0
 // populate(info.toDoItemArray[0]);
+
+document.querySelector('.checkList').onclick = function(event){
+    checked(event);
+}
 
 projectsSelector.addEventListener('click', (event)=>{
     newProjectTab(event, '+');
