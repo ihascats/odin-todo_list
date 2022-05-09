@@ -7,6 +7,7 @@ import Information from './informationInOnePlace';
 import populate from './populateNote';
 import checked from './markChecked';
 import tasks from './displayTasks'
+import showTasksToUser from './tasksWithinProject';
 
 let info = new Information(); 
 
@@ -41,23 +42,6 @@ console.table(info.projectsArray);
 console.table(info.toDoItemArray[0]);
 tasks('personal', info);
 
-document.onclick = function(){
-
-    let selected = document.querySelector('.selected');
-
-    while (tasksDivSelector.firstElementChild){
-        tasksDivSelector.firstElementChild.remove();
-    }
-    
-    info.returnTasksWithin(selected.textContent).forEach(position => {
-        let item = info.toDoItemArray[position].title;
-        tasksDivSelector.appendChild(newButton(item, item));
-    });
-
-    tasksDivSelector.appendChild(newButton('+', 'create-new-project'));
-}
-
-tasksDivSelector.appendChild(newButton("+", "create-new-project"))
 // populates card with ToDo item of id 0
 // populate(info.toDoItemArray[0]);
 
@@ -68,13 +52,30 @@ document.querySelector('.checkList').onclick = function(event){
 projectsSelector.addEventListener('click', (event)=>{
     newProjectTab(event, '+');
     select(event, projectsSelector, byDateSelector);
+
+    // find first selected element
+    let selected = document.querySelector('.selected');
+    // while there is tasks remove them
+    emptyTasks();
+    // returns tasks within selected project
+    // gets title from each toDoItem within a project, displays as button names
+    showTasksToUser(selected, info, tasksDivSelector);
+
+    tasksDivSelector.appendChild(newButton('+', 'create-new-project'));
 });
 
 tasksDivSelector.addEventListener('click', (event)=>{
     newProjectTab(event, '+');
-    select(event, projectsSelector, byDateSelector);
+    select(event, tasksDivSelector);
 });
 
 byDateSelector.addEventListener('click', (event)=>{
     select(event, projectsSelector, byDateSelector);
+    emptyTasks();
 });
+
+function emptyTasks(){
+    while (tasksDivSelector.firstElementChild){
+        tasksDivSelector.firstElementChild.remove();
+    }
+}
