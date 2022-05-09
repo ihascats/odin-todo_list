@@ -258,3 +258,6 @@ li > button {
     outline:none;
 }
 
+.tasks > div > button > .css-input {
+    background-color: #6e4c62;
+}

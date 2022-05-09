@@ -18,7 +18,7 @@ class Information {
     addToDoItem(title, project){
         let item = new ToDoInformation(this.toDoItemArray.length, title);
         this.toDoItemArray.push(item);
-        this.addItemToProjectList(item, project.toLowerCase());
+        this.addItemToProjectList(item, project.split(' ').join('').toLowerCase());
     }
     
     addItemToProjectList(item, project){
@@ -26,6 +26,10 @@ class Information {
         this.informationHandler[project].push(item.id);
 
 
+    }
+
+    returnTasksWithin(project){
+        return this.informationHandler[project.split(' ').join('').toLowerCase()];
     }
     // id = 0, title = "", description = "", dueDate, priority = 0, checkList = [], note = ""
 }
