@@ -8,6 +8,7 @@ import populate from './populateNote';
 import checked from './markChecked';
 import tasks from './displayTasks'
 import showTasksToUser from './tasksWithinProject';
+import emptyTasks from './emptyTasks'
 
 let info = new Information(); 
 
@@ -50,7 +51,7 @@ document.querySelector('.checkList').onclick = function(event){
 }
 
 projectsSelector.addEventListener('click', (event)=>{
-    newProjectTab(event, '+');
+    newProjectTab(event, '+', info);
     select(event, projectsSelector, byDateSelector);
 
     // find first selected element
@@ -60,12 +61,13 @@ projectsSelector.addEventListener('click', (event)=>{
     // returns tasks within selected project
     // gets title from each toDoItem within a project, displays as button names
     showTasksToUser(selected, info, tasksDivSelector);
-
-    tasksDivSelector.appendChild(newButton('+', 'create-new-project'));
+    if (event.target.textContent!=''){
+        tasksDivSelector.appendChild(newButton('+', 'create-new-project'));
+    }
 });
 
 tasksDivSelector.addEventListener('click', (event)=>{
-    newProjectTab(event, '+');
+    newProjectTab(event, '+', info);
     select(event, tasksDivSelector);
 });
 
@@ -73,9 +75,3 @@ byDateSelector.addEventListener('click', (event)=>{
     select(event, projectsSelector, byDateSelector);
     emptyTasks();
 });
-
-function emptyTasks(){
-    while (tasksDivSelector.firstElementChild){
-        tasksDivSelector.firstElementChild.remove();
-    }
-}

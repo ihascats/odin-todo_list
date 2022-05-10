@@ -1,8 +1,8 @@
 import newButton from "./newProjectButton";
 import Project from "./createProject";
 
-function submit(toBeChanged, change, lookingFor=''){
-    document.onkeydown = (event) => userInputProcess(event, toBeChanged, change, lookingFor);
+function submit(toBeChanged, change, lookingFor='', info){
+    document.onkeydown = (event) => userInputProcess(event, toBeChanged, change, lookingFor, info);
     document.onclick = function(event){
         let textField = event.target.closest('.create-new-project');
         if (!textField || textField==null){
@@ -19,7 +19,7 @@ function submit(toBeChanged, change, lookingFor=''){
     }
 }
 
-function userInputProcess(event, toBeChanged, change, lookingFor){
+function userInputProcess(event, toBeChanged, change, lookingFor, info){
 
     // if users presses "Enter"
     if(event.key == "Enter") {
@@ -28,6 +28,13 @@ function userInputProcess(event, toBeChanged, change, lookingFor){
             // set textContent of "toBeChanged"(node element) into "change" (text input);
             toBeChanged.textContent = change.value.toUpperCase();
             toBeChanged.classList = change.value.toLowerCase().replaceAll(" ", "");
+            // if new element is a task, add a toDoItem, if its a project add a Project
+            if (toBeChanged.parentElement.parentElement.classList.contains('tasks')){
+                let selectedProject = document.querySelector('.selected');
+                info.addToDoItem(toBeChanged.textContent, selectedProject.classList[0]);
+            } else if (toBeChanged.parentElement.parentElement.classList.contains('left')){
+                info.addProject(toBeChanged.textContent);
+            }
 
             // if "lookingFor" is not empty/nothing, add a child button
             if (lookingFor!=''){

@@ -1,7 +1,7 @@
 import submit from "./submitOnEnter";
 import quickMakeNewElement from "./newElement";
 
-function newProjectTab(event, lookingFor = '+'){
+function newProjectTab(event, lookingFor = '+', info){
 
     let newTab = event.target;
 
@@ -19,7 +19,7 @@ function newProjectTab(event, lookingFor = '+'){
         newTab.appendChild(textInput);
 
         
-        submit(newTab, textInput, lookingFor);
+        submit(newTab, textInput, lookingFor, info);
         
     }
 

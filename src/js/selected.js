@@ -1,5 +1,5 @@
 function select(event, ...check){
-    let button = event.target;
+    let button = event.target.closest('button');
     if (!button || button == null || button.textContent == '') return
     check.forEach(node => {
         node.childNodes.forEach(element => {
