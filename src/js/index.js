@@ -84,7 +84,7 @@ byDateSelector.addEventListener('click', (event)=>{
     emptyTasks();
 });
 
-contentSelector.onclick = function(event){
+contentSelector.oninput = function(event){
     let selectedTask = document.querySelector('.tasks>div>.selected');
     let currentId = selectedTask.classList[0];
     store(info, event, currentId);
