@@ -8,10 +8,12 @@ function store(info, event, id){
     } else {
         className = textArea.classList[0];
     }
-    console.log(className)
-    console.log(info.toDoItemArray[id][className]);
-    event.target.onchange = ()=>{
-        info.toDoItemArray[id][className] = event.target.value
+
+    event.target.oninput = ()=>{
+        info.toDoItemArray[id][className] = event.target.value;
+        if (className == 'title'){
+            document.querySelector('.tasks>div>.selected').textContent = event.target.value;
+        }
     }
 }
 
