@@ -69,6 +69,9 @@ projectsSelector.addEventListener('click', (event)=>{
 tasksDivSelector.addEventListener('click', (event)=>{
     newProjectTab(event, '+', info);
     select(event, tasksDivSelector);
+    let selectedProject = document.querySelector('.selected');
+    let selectedTask = document.querySelector('.tasks>div>.selected');
+    populate(info.toDoItemArray[selectedTask.classList[0]]);
 });
 
 byDateSelector.addEventListener('click', (event)=>{
