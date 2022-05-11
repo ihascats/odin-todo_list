@@ -8,13 +8,15 @@ import populate from './populateNote';
 import checked from './markChecked';
 import tasks from './displayTasks'
 import showTasksToUser from './tasksWithinProject';
-import emptyTasks from './emptyTasks'
+import emptyTasks from './emptyTasks';
+import store from './storeUserInput';
 
 let info = new Information(); 
 
 const projectsSelector = document.querySelector('.projects');
 const byDateSelector = document.querySelector('.by-date');
 const tasksDivSelector = document.querySelector('.tasks>div');
+const contentSelector = document.querySelector('.content');
 
 createButton('personal', projectsSelector);
 createButton('work', projectsSelector);
@@ -81,3 +83,9 @@ byDateSelector.addEventListener('click', (event)=>{
     select(event, projectsSelector, byDateSelector);
     emptyTasks();
 });
+
+contentSelector.onclick = function(event){
+    let selectedTask = document.querySelector('.tasks>div>.selected');
+    let currentId = selectedTask.classList[0];
+    store(info, event, currentId);
+}

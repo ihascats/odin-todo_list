@@ -216,7 +216,7 @@ li > button {
 
 
 
-.input {
+input, textarea {
     word-wrap: break-word;
     width: 100%;
     padding: 4px;
@@ -225,7 +225,7 @@ li > button {
     color: rgb(212, 212, 212);
     border: none;
 }
-.input:focus {
+input:focus, textarea:focus {
     outline:none;
 }
 
