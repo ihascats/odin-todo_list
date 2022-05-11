@@ -31,6 +31,7 @@ function userInputProcess(event, toBeChanged, change, lookingFor, info){
             // if new element is a task, add a toDoItem, if its a project add a Project
             if (toBeChanged.parentElement.parentElement.classList.contains('tasks')){
                 let selectedProject = document.querySelector('.selected');
+                toBeChanged.classList = info.toDoItemArray.length;
                 info.addToDoItem(toBeChanged.textContent, selectedProject.classList[0]);
             } else if (toBeChanged.parentElement.parentElement.classList.contains('left')){
                 info.addProject(toBeChanged.textContent);

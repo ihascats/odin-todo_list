@@ -69,8 +69,11 @@ projectsSelector.addEventListener('click', (event)=>{
 tasksDivSelector.addEventListener('click', (event)=>{
     newProjectTab(event, '+', info);
     select(event, tasksDivSelector);
-    let selectedProject = document.querySelector('.selected');
+
+    // find selected task
     let selectedTask = document.querySelector('.tasks>div>.selected');
+    // populate card with selected task's info
+    if (selectedTask==null) return
     populate(info.toDoItemArray[selectedTask.classList[0]]);
 });
 
