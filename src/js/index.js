@@ -10,6 +10,7 @@ import tasks from './displayTasks'
 import showTasksToUser from './tasksWithinProject';
 import emptyTasks from './emptyTasks';
 import store from './storeUserInput';
+import createNewItem from './newChecklistItem'
 
 let info = new Information(); 
 
@@ -89,3 +90,8 @@ contentSelector.oninput = function(event){
     let currentId = selectedTask.classList[0];
     store(info, event, currentId);
 }
+
+let checkList = document.querySelector('.checkList');
+checkList.addEventListener('click', (event)=>{
+    createNewItem(event, '+');
+})

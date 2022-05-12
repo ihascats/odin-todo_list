@@ -206,7 +206,10 @@ li > button {
     background-color: #523944;
 }
 
-
+.newListItem {
+    width: 100%;
+    text-align: center;
+}
 
 
 
