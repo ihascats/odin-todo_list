@@ -26,7 +26,7 @@ function userInputProcess(event, toBeChanged, change, lookingFor, info){
         // and if change value is not nothing
         if (change.value!=''){
             // set textContent of "toBeChanged"(node element) into "change" (text input);
-            toBeChanged.textContent = change.value.toUpperCase();
+            toBeChanged.textContent = change.value[0].toUpperCase() + change.value.substring(1).toLowerCase();
             toBeChanged.classList = change.value.toLowerCase().replaceAll(" ", "");
             // if new element is a task, add a toDoItem, if its a project add a Project
             if (toBeChanged.parentElement.parentElement.classList.contains('tasks')){
