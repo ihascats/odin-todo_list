@@ -31,6 +31,10 @@ class Information {
     returnTasksWithin(project){
         return this.informationHandler[project.split(' ').join('').toLowerCase()];
     }
+
+    addCheckListItem(text, status, id){
+        
+    }
     // id = 0, title = "", description = "", dueDate, priority = 0, checkList = [], note = ""
 }
 

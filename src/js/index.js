@@ -10,7 +10,7 @@ import tasks from './displayTasks'
 import showTasksToUser from './tasksWithinProject';
 import emptyTasks from './emptyTasks';
 import store from './storeUserInput';
-import createNewItem from './newChecklistItem'
+import {createNewItem} from './newChecklistItem'
 
 let info = new Information(); 
 
@@ -28,17 +28,6 @@ projectsSelector.appendChild(newButton('+', 'create-new-project'));
 
 info.addProject('personal');
 info.addProject('work');
-// creates ToDo item in 'personal' project
-info.addToDoItem('Test', 'personal');
-info.addToDoItem('Test2', 'personal');
-info.addToDoItem('Test3', 'personal');
-info.addToDoItem('Test4', 'personal');
-info.addToDoItem('Test5', 'personal');
-info.addToDoItem('@Test', 'work');
-info.addToDoItem('@Test2', 'work');
-info.addToDoItem('@Test3', 'work');
-info.addToDoItem('@Test4', 'work');
-info.addToDoItem('@Test5', 'work');
 // displays projects and what todo items they are holding
 console.table(info.informationHandler);
 console.table(info.projectsArray);
@@ -93,5 +82,5 @@ contentSelector.oninput = function(event){
 
 let checkList = document.querySelector('.checkList');
 checkList.addEventListener('click', (event)=>{
-    createNewItem(event, '+');
+    createNewItem(info, '+');
 })
